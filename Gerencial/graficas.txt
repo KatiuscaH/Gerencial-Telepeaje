@@ -1,0 +1,95 @@
+CONSULTAS SQL
+::::::::::::::::::::::::
+Tabla: Vehiculo
+
+### Número de vehículos en cada categoría ###
+
+SELECT categoria, COUNT(placa) 
+FROM vehiculo 
+GROUP BY categoria
+
+### Saldo en cada categoría ###
+
+SELECT categoria, SUM(saldo) AS dinero 
+FROM vehiculo 
+GROUP BY categoria
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+::::::::::::::::::::::::
+Tabla: recargatelepeaje
+
+### Fechas con mayor recarga ###
+
+SELECT fechaRecarga, SUM(valor) AS saldo
+FROM recargatelepeaje
+GROUP BY fechaRecarga
+ORDER BY saldo DESC
+LIMIT 5
+ 
+### Cantidad de plata recargada en esa fecha ###
+
+SELECT fechaRecarga, SUM(valor) AS saldo
+FROM recargatelepeaje
+WHERE fechaRecarga = ?
+GROUP BY fechaRecarga
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+::::::::::::::::::::::::
+Tabla: cobrotelepeaje
+
+### Mayor valor cobrado a un vehiculo ###
+
+
+
+### Fecha donde hubo más cobro ###
+
+
+
+### Fecha de menor cobro ###
+
+
+
+### Dinero ganado actualmente ###
+
+SELECT SUM(valor) AS valor
+FROM cobrotelepeaje
+
+### Cantidad de plata recaudada por categoria ###
+
+SELECT categoriacarro, SUM(valor) AS valor
+FROM cobrotelepeaje
+GROUP BY categoriacarro
